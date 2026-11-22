@@ -1,0 +1,246 @@
+{
+  "name": "audit-lab",
+  "type": "clab",
+  "clab": {
+    "config": {
+      "prefix": "clab",
+      "mgmt": {
+        "network": "clab",
+        "bridge": "br-4bdadd6f9458",
+        "ipv4-subnet": "172.20.20.0/24",
+        "ipv4-gw": "172.20.20.1",
+        "ipv6-subnet": "3fff:172:20:20::/64",
+        "ipv6-gw": "3fff:172:20:20::1",
+        "external-access": true,
+        "ipam": {
+          "provider": "containerlab"
+        }
+      }
+    }
+  },
+  "ssh-pub-keys": [],
+  "nodes": {
+    "core-srl1": {
+      "index": "0",
+      "shortname": "core-srl1",
+      "longname": "clab-audit-lab-core-srl1",
+      "fqdn": "core-srl1.audit-lab.io",
+      "group": "",
+      "labdir": "/root/network-audit-lab/clab-audit-lab/core-srl1",
+      "kind": "nokia_srlinux",
+      "image": "ghcr.io/nokia/srlinux:latest",
+      "mgmt-net": "clab",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.6",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::6",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "1a:c7:00:00:00:00",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-mgmt-net-bridge": "br-4bdadd6f9458",
+        "clab-node-group": "",
+        "clab-node-kind": "nokia_srlinux",
+        "clab-node-lab-dir": "/root/network-audit-lab/clab-audit-lab/core-srl1",
+        "clab-node-longname": "clab-audit-lab-core-srl1",
+        "clab-node-name": "core-srl1",
+        "clab-node-type": "ixr-d2l",
+        "clab-owner": "manish",
+        "clab-topo-file": "/root/network-audit-lab/topology.clab.yml",
+        "containerlab": "audit-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "fw-edge": {
+      "index": "1",
+      "shortname": "fw-edge",
+      "longname": "clab-audit-lab-fw-edge",
+      "fqdn": "fw-edge.audit-lab.io",
+      "group": "",
+      "labdir": "/root/network-audit-lab/clab-audit-lab/fw-edge",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "clab",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.2",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::2",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-mgmt-net-bridge": "br-4bdadd6f9458",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/root/network-audit-lab/clab-audit-lab/fw-edge",
+        "clab-node-longname": "clab-audit-lab-fw-edge",
+        "clab-node-name": "fw-edge",
+        "clab-node-type": "",
+        "clab-owner": "manish",
+        "clab-topo-file": "/root/network-audit-lab/topology.clab.yml",
+        "containerlab": "audit-lab"
+      },
+      "port-bindings": [
+      ]
+    },
+    "huawei-core1": {
+      "index": "2",
+      "shortname": "huawei-core1",
+      "longname": "clab-audit-lab-huawei-core1",
+      "fqdn": "huawei-core1.audit-lab.io",
+      "group": "",
+      "labdir": "/root/network-audit-lab/clab-audit-lab/huawei-core1",
+      "kind": "linux",
+      "image": "device-emulator:latest",
+      "mgmt-net": "clab",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.3",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::3",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-mgmt-net-bridge": "br-4bdadd6f9458",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/root/network-audit-lab/clab-audit-lab/huawei-core1",
+        "clab-node-longname": "clab-audit-lab-huawei-core1",
+        "clab-node-name": "huawei-core1",
+        "clab-node-type": "",
+        "clab-owner": "manish",
+        "clab-topo-file": "/root/network-audit-lab/topology.clab.yml",
+        "containerlab": "audit-lab"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 22,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "isp-rtr": {
+      "index": "3",
+      "shortname": "isp-rtr",
+      "longname": "clab-audit-lab-isp-rtr",
+      "fqdn": "isp-rtr.audit-lab.io",
+      "group": "",
+      "labdir": "/root/network-audit-lab/clab-audit-lab/isp-rtr",
+      "kind": "frr",
+      "image": "quay.io/frrouting/frr:containerlab-10.7.1",
+      "mgmt-net": "clab",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.4",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::4",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-mgmt-net-bridge": "br-4bdadd6f9458",
+        "clab-node-group": "",
+        "clab-node-kind": "frr",
+        "clab-node-lab-dir": "/root/network-audit-lab/clab-audit-lab/isp-rtr",
+        "clab-node-longname": "clab-audit-lab-isp-rtr",
+        "clab-node-name": "isp-rtr",
+        "clab-node-type": "",
+        "clab-owner": "manish",
+        "clab-topo-file": "/root/network-audit-lab/topology.clab.yml",
+        "containerlab": "audit-lab"
+      },
+      "port-bindings": [
+        {
+          "host-ip": "",
+          "host-port": 0,
+          "port": 22,
+          "protocol": "tcp"
+        }
+      ]
+    },
+    "srv-web": {
+      "index": "4",
+      "shortname": "srv-web",
+      "longname": "clab-audit-lab-srv-web",
+      "fqdn": "srv-web.audit-lab.io",
+      "group": "",
+      "labdir": "/root/network-audit-lab/clab-audit-lab/srv-web",
+      "kind": "linux",
+      "image": "alpine:latest",
+      "mgmt-net": "clab",
+      "mgmt-intf": "",
+      "mgmt-ipv4-address": "172.20.20.5",
+      "mgmt-ipv4-prefix-length": 24,
+      "mgmt-ipv6-address": "3fff:172:20:20::5",
+      "mgmt-ipv6-prefix-length": 64,
+      "mac-address": "",
+      "labels": {
+        "clab-git-branch": "master",
+        "clab-mgmt-net-bridge": "br-4bdadd6f9458",
+        "clab-node-group": "",
+        "clab-node-kind": "linux",
+        "clab-node-lab-dir": "/root/network-audit-lab/clab-audit-lab/srv-web",
+        "clab-node-longname": "clab-audit-lab-srv-web",
+        "clab-node-name": "srv-web",
+        "clab-node-type": "",
+        "clab-owner": "manish",
+        "clab-topo-file": "/root/network-audit-lab/topology.clab.yml",
+        "containerlab": "audit-lab"
+      },
+      "port-bindings": [
+      ]
+    }
+  },
+  "links": [
+    {
+      "endpoints": {
+        "a": {
+          "node": "isp-rtr",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:48:cb:95",
+          "peer": "z"
+        },
+        "z": {
+          "node": "fw-edge",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:a5:b1:b6",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "fw-edge",
+          "interface": "eth2",
+          "mac": "aa:c1:ab:8a:76:45",
+          "peer": "z"
+        },
+        "z": {
+          "node": "core-srl1",
+          "interface": "e1-1",
+          "mac": "aa:c1:ab:bc:a1:02",
+          "peer": "a"
+        }
+      }
+    },
+    {
+      "endpoints": {
+        "a": {
+          "node": "core-srl1",
+          "interface": "e1-2",
+          "mac": "aa:c1:ab:d9:11:ca",
+          "peer": "z"
+        },
+        "z": {
+          "node": "srv-web",
+          "interface": "eth1",
+          "mac": "aa:c1:ab:d9:e4:80",
+          "peer": "a"
+        }
+      }
+    }
+  ]
+}

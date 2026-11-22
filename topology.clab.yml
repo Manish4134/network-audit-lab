@@ -1,0 +1,39 @@
+name: audit-lab
+
+topology:
+  nodes:
+    # Layer 1: Infrastructure
+    isp-rtr:
+      kind: frr
+      image: quay.io/frrouting/frr:containerlab-10.7.1
+
+    fw-edge:
+      kind: linux
+      image: alpine:latest
+      cmd: sleep infinity
+
+    srv-web:
+      kind: linux
+      image: alpine:latest
+      cmd: sleep infinity
+
+    # Layer 2: Real audited vendor NOS (Nokia SR Linux)
+    core-srl1:
+      kind: nokia_srlinux
+      image: ghcr.io/nokia/srlinux:latest
+
+    # Layer 3: Emulated device farm (Huawei VRP)
+    huawei-core1:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-CORE1
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+
+  links:
+    - endpoints: ["isp-rtr:eth1", "fw-edge:eth1"]
+    - endpoints: ["fw-edge:eth2", "core-srl1:e1-1"]
+    - endpoints: ["core-srl1:e1-2", "srv-web:eth1"]

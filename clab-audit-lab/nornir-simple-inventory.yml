@@ -1,0 +1,26 @@
+---
+isp-rtr:
+    username: admin
+    password: admin
+    platform: frr
+    hostname: 172.20.20.4
+fw-edge:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.2
+huawei-core1:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.3
+srv-web:
+    username: 
+    password: 
+    platform: linux
+    hostname: 172.20.20.5
+core-srl1:
+    username: admin
+    password: NokiaSrl1!
+    platform: nokia_srlinux
+    hostname: 172.20.20.6
