@@ -22,7 +22,7 @@ topology:
       kind: nokia_srlinux
       image: ghcr.io/nokia/srlinux:latest
 
-    # Layer 3: Emulated device farm (Huawei VRP)
+    # Layer 3: Emulated device farm (Huawei VRP, Nokia SR OS, Cisco NX-OS)
     huawei-core1:
       kind: linux
       image: device-emulator:latest
@@ -32,6 +32,26 @@ topology:
         CONFIG_FILE: /etc/mock/config.txt
       binds:
         - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+
+    sros-pe1:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-PE1
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+
+    nxos-leaf1:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-LEAF1
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
 
   links:
     - endpoints: ["isp-rtr:eth1", "fw-edge:eth1"]
