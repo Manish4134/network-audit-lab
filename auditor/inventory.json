@@ -1,0 +1,58 @@
+[
+  {
+    "name": "core-srl1",
+    "host": "clab-audit-lab-core-srl1",
+    "vendor": "nokia_srlinux",
+    "mode": "shell",
+    "username": "admin",
+    "password": "NokiaSrl1!",
+    "commands": ["info flat | no-more"],
+    "exit_cmd": "quit"
+  },
+  {
+    "name": "isp-rtr",
+    "host": "clab-audit-lab-isp-rtr",
+    "vendor": "frr",
+    "mode": "shell",
+    "username": "admin",
+    "password": "admin",
+    "commands": ["terminal length 0", "show running-config"],
+    "exit_cmd": "exit"
+  },
+  {
+    "name": "huawei-core1",
+    "host": "clab-audit-lab-huawei-core1",
+    "vendor": "huawei_vrp",
+    "mode": "exec",
+    "username": "audit",
+    "password": "audit123",
+    "commands": ["display current-configuration"]
+  },
+  {
+    "name": "sros-pe1",
+    "host": "clab-audit-lab-sros-pe1",
+    "vendor": "nokia_sros",
+    "mode": "exec",
+    "username": "audit",
+    "password": "audit123",
+    "commands": ["admin display-config"]
+  },
+  {
+    "name": "nxos-leaf1",
+    "host": "clab-audit-lab-nxos-leaf1",
+    "vendor": "cisco_nxos",
+    "mode": "exec",
+    "username": "audit",
+    "password": "audit123",
+    "commands": ["show running-config"]
+  },
+  {
+    "name": "junos-edge1",
+    "host": "clab-audit-lab-junos-edge1",
+    "vendor": "juniper_junos",
+    "mode": "exec",
+    "username": "audit",
+    "password": "audit123",
+    "commands": ["show configuration"]
+  }
+]

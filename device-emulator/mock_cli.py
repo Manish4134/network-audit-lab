@@ -43,11 +43,14 @@ def handle_cmd(cmd):
         return f"Emulated {VENDOR.upper()} Device ({HOSTNAME}) - Config Audit Target\n"
     return f"% Simulated response for: {cmd.strip()}\n"
 
-ssh_orig = os.environ.get("SSH_ORIGINAL_COMMAND")
-if ssh_orig:
-    out = handle_cmd(ssh_orig)
+cmd_arg = os.environ.get("SSH_ORIGINAL_COMMAND")
+if not cmd_arg and len(sys.argv) >= 3 and sys.argv[1] == "-c":
+    cmd_arg = " ".join(sys.argv[2:])
+
+if cmd_arg is not None:
+    out = handle_cmd(cmd_arg)
     if out:
-        sys.stdout.write(out)
+        sys.stdout.write(out if out.endswith("\n") else out + "\n")
     sys.exit(0)
 
 prompt = PROMPTS.get(VENDOR, f"{HOSTNAME}# ")

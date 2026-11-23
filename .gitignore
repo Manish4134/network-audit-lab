@@ -1,3 +1,4 @@
 clab-*/
 *.bak
 .topology.clab.yml.bak
+auditor/collected_configs/
