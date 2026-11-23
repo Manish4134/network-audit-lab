@@ -5,6 +5,7 @@ VENDORS = [
     ("huawei", "configs/huawei-core1.cfg"),
     ("sros", "configs/sros-pe1.cfg"),
     ("nxos", "configs/nxos-leaf1.cfg"),
+    ("junos", "configs/junos-edge1.cfg"),
 ]
 
 def main():
@@ -47,7 +48,7 @@ def main():
     with open(args.out, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
-    print(f"Generated {args.out} with 1 real SR Linux + {args.count} emulated devices.")
+    print(f"Generated {args.out} with 1 real SR Linux + {args.count} emulated devices across 4 vendors.")
 
 if __name__ == "__main__":
     main()

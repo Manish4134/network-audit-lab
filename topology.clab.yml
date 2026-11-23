@@ -22,7 +22,7 @@ topology:
       kind: nokia_srlinux
       image: ghcr.io/nokia/srlinux:latest
 
-    # Layer 3: Emulated device farm (Huawei VRP, Nokia SR OS, Cisco NX-OS)
+    # Layer 3: Emulated device farm (Huawei VRP, Nokia SR OS, Cisco NX-OS, Juniper Junos)
     huawei-core1:
       kind: linux
       image: device-emulator:latest
@@ -52,6 +52,16 @@ topology:
         CONFIG_FILE: /etc/mock/config.txt
       binds:
         - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+
+    junos-edge1:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: junos
+        DEVICE_HOSTNAME: JUNOS-EDGE1
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/junos-edge1.cfg:/etc/mock/config.txt:ro
 
   links:
     - endpoints: ["isp-rtr:eth1", "fw-edge:eth1"]
