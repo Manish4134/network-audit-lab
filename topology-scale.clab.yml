@@ -1,0 +1,912 @@
+name: scale-lab
+
+mgmt:
+  network: clab-scale
+  ipv4-subnet: 172.21.0.0/16
+
+topology:
+  nodes:
+    # Real Layer 2 vendor device alongside the emulated farm
+    core-srl1:
+      kind: nokia_srlinux
+      image: ghcr.io/nokia/srlinux:latest
+    huawei-001:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-001
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-002:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-002
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-003:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-003
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-004:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-004
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-005:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-005
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-006:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-006
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-007:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-007
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-008:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-008
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-009:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-009
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-010:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-010
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-011:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-011
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-012:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-012
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-013:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-013
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-014:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-014
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-015:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-015
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-016:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-016
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-017:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-017
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-018:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-018
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-019:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-019
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-020:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-020
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-021:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-021
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-022:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-022
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-023:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-023
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-024:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-024
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-025:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-025
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-026:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-026
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-027:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-027
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-028:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-028
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-029:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-029
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-030:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-030
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-031:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-031
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-032:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-032
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-033:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-033
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-034:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-034
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-035:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-035
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-036:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-036
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-037:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-037
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-038:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-038
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-039:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-039
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-040:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-040
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-041:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-041
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-042:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-042
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-043:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-043
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-044:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-044
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-045:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-045
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-046:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-046
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-047:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-047
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-048:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-048
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-049:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-049
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-050:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-050
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-051:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-051
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-052:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-052
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-053:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-053
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-054:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-054
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-055:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-055
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-056:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-056
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-057:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-057
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-058:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-058
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-059:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-059
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-060:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-060
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-061:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-061
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-062:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-062
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-063:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-063
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-064:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-064
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-065:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-065
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-066:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-066
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-067:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-067
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-068:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-068
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-069:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-069
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-070:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-070
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-071:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-071
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-072:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-072
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-073:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-073
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-074:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-074
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-075:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-075
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-076:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-076
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-077:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-077
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-078:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-078
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-079:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-079
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-080:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-080
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-081:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-081
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-082:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-082
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-083:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-083
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-084:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-084
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-085:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-085
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-086:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-086
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-087:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-087
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-088:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-088
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-089:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-089
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-090:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-090
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-091:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-091
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-092:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-092
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-093:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-093
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-094:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-094
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-095:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-095
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-096:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-096
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-097:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-097
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
+    sros-098:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: sros
+        DEVICE_HOSTNAME: SROS-098
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/sros-pe1.cfg:/etc/mock/config.txt:ro
+    nxos-099:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: nxos
+        DEVICE_HOSTNAME: NXOS-099
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/nxos-leaf1.cfg:/etc/mock/config.txt:ro
+    huawei-100:
+      kind: linux
+      image: device-emulator:latest
+      env:
+        VENDOR_STYLE: huawei
+        DEVICE_HOSTNAME: HUAWEI-100
+        CONFIG_FILE: /etc/mock/config.txt
+      binds:
+        - configs/huawei-core1.cfg:/etc/mock/config.txt:ro
