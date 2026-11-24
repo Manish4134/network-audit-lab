@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Network Configuration Audit Dashboard</title>
+<style>
+  body { font-family: system-ui, -apple-system, sans-serif; background: #0f172a; color: #e2e8f0; margin: 0; padding: 24px; }
+  .wrap { max-width: 1200px; margin: 0 auto; }
+  h1 { margin: 0 0 6px 0; font-size: 24px; }
+  .sub { color: #94a3b8; margin-bottom: 20px; font-size: 14px; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-bottom: 22px; }
+  .card { background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 16px; }
+  .card .lbl { color: #94a3b8; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+  .card .val { font-size: 28px; font-weight: 700; margin-top: 6px; }
+  .pass-c { color: #4ade80; } .fail-c { color: #f87171; } .warn-c { color: #fbbf24; } .blue-c { color: #38bdf8; }
+  table { width: 100%; border-collapse: collapse; background: #1e293b; border-radius: 10px; overflow: hidden; border: 1px solid #334155; }
+  th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #334155; vertical-align: top; font-size: 14px; }
+  th { background: #0b1220; color: #cbd5e1; font-size: 12px; text-transform: uppercase; }
+  small { color: #94a3b8; }
+  .badge { padding: 3px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; display: inline-block; }
+  .bg-pass { background: #14532d; color: #86efac; }
+  .bg-fail { background: #7f1d1d; color: #fca5a5; }
+  .bg-warn { background: #78350f; color: #fde68a; }
+  .layer { background: #334155; color: #e2e8f0; padding: 2px 8px; border-radius: 6px; font-size: 12px; }
+  .flist { margin: 0; padding-left: 16px; }
+  .flist li { margin-bottom: 6px; }
+  .sev { font-size: 10px; padding: 1px 6px; border-radius: 4px; font-weight: 700; }
+  .sev-HIGH { background: #991b1b; color: #fecaca; }
+  .sev-MEDIUM { background: #92400e; color: #fde68a; }
+  .sev-LOW { background: #1e3a8a; color: #bfdbfe; }
+  .fix { color: #94a3b8; font-size: 12px; }
+  code { background: #0f172a; padding: 1px 5px; border-radius: 4px; color: #7dd3fc; }
+  .ok-txt { color: #4ade80; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Multi-Vendor Network Configuration Audit Dashboard</h1>
+  <div class="sub">Generated: 2026-11-24 16:10:14 | Total audit runtime: <strong>6.13s</strong></div>
+  <div class="cards">
+    <div class="card"><div class="lbl">Total Devices</div><div class="val blue-c">8</div></div>
+    <div class="card"><div class="lbl">Compliant (PASS)</div><div class="val pass-c">2</div></div>
+    <div class="card"><div class="lbl">Non-Compliant (FAIL)</div><div class="val fail-c">6</div></div>
+    <div class="card"><div class="lbl">Warnings</div><div class="val warn-c">0</div></div>
+    <div class="card"><div class="lbl">Compliance Score</div><div class="val">25.0%</div></div>
+  </div>
+  <table>
+    <thead>
+      <tr><th>Device</th><th>Vendor</th><th>Platform Layer</th><th>Lines</th><th>Status</th><th>Findings &amp; Suggested Remediation</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>core-srl1</strong><br><small>clab-audit-lab-core-srl1</small></td><td>nokia_srlinux</td><td><span class='layer'>Real NOS (Layer 2)</span></td><td>695</td><td><span class='badge bg-pass'>PASS</span></td><td><span class='ok-txt'>All security checks passed</span></td></tr><tr><td><strong>cisco-rtr1</strong><br><small>192.168.255.138</small></td><td>cisco_ios</td><td><span class='layer'>Real NOS (Layer 2)</span></td><td>178</td><td><span class='badge bg-fail'>FAIL</span></td><td><ul class='flist'><li><span class='sev sev-HIGH'>HIGH</span> <strong>SEC-TELNET-OFF</strong>: Telnet service enabled<br><span class='fix'>Suggested fix: <code>line vty 0 4 -&gt; transport input ssh</code></span></li></ul></td></tr><tr><td><strong>cisco-sw1</strong><br><small>192.168.255.139</small></td><td>cisco_ios_l2</td><td><span class='layer'>Real NOS (Layer 2)</span></td><td>137</td><td><span class='badge bg-fail'>FAIL</span></td><td><ul class='flist'><li><span class='sev sev-HIGH'>HIGH</span> <strong>SEC-TELNET-OFF</strong>: Telnet service enabled<br><span class='fix'>Suggested fix: <code>line vty 0 4 -&gt; transport input ssh</code></span></li><li><span class='sev sev-HIGH'>HIGH</span> <strong>SEC-SNMP-WEAK</strong>: Weak SNMP community (public/private)<br><span class='fix'>Suggested fix: <code>no snmp-server community public</code></span></li></ul></td></tr><tr><td><strong>isp-rtr</strong><br><small>clab-audit-lab-isp-rtr</small></td><td>frr</td><td><span class='layer'>Infra (Layer 1)</span></td><td>0</td><td><span class='badge bg-fail'>ERROR</span></td><td><ul class='flist'><li><span class='sev sev-HIGH'>HIGH</span> <strong>CONN-ERR</strong>: NoValidConnectionsError: [Errno None] Unable to connect to port 22 on 172.20.20.9 or 3fff:172:20:20::9<br><span class='fix'>Suggested fix: <code>Check SSH reachability</code></span></li></ul></td></tr><tr><td><strong>huawei-core1</strong><br><small>clab-audit-lab-huawei-core1</small></td><td>huawei_vrp</td><td><span class='layer'>Emulated Farm (Layer 3)</span></td><td>10</td><td><span class='badge bg-pass'>PASS</span></td><td><span class='ok-txt'>All security checks passed</span></td></tr><tr><td><strong>sros-pe1</strong><br><small>clab-audit-lab-sros-pe1</small></td><td>nokia_sros</td><td><span class='layer'>Emulated Farm (Layer 3)</span></td><td>27</td><td><span class='badge bg-fail'>FAIL</span></td><td><ul class='flist'><li><span class='sev sev-HIGH'>HIGH</span> <strong>SEC-TELNET-OFF</strong>: Telnet service enabled<br><span class='fix'>Suggested fix: <code>configure system security no telnet-server</code></span></li><li><span class='sev sev-HIGH'>HIGH</span> <strong>SEC-SNMP-WEAK</strong>: Weak SNMP community (public/private)<br><span class='fix'>Suggested fix: <code>configure system snmp no community &quot;public&quot;</code></span></li></ul></td></tr><tr><td><strong>nxos-leaf1</strong><br><small>clab-audit-lab-nxos-leaf1</small></td><td>cisco_nxos</td><td><span class='layer'>Emulated Farm (Layer 3)</span></td><td>20</td><td><span class='badge bg-fail'>FAIL</span></td><td><ul class='flist'><li><span class='sev sev-HIGH'>HIGH</span> <strong>SEC-TELNET-OFF</strong>: Telnet service enabled<br><span class='fix'>Suggested fix: <code>no feature telnet</code></span></li><li><span class='sev sev-HIGH'>HIGH</span> <strong>SEC-SNMP-WEAK</strong>: Weak SNMP community (public/private)<br><span class='fix'>Suggested fix: <code>no snmp-server community public</code></span></li><li><span class='sev sev-LOW'>LOW</span> <strong>SEC-EXEC-TIMEOUT</strong>: Infinite VTY exec-timeout 0<br><span class='fix'>Suggested fix: <code>line vty -&gt; exec-timeout 10</code></span></li></ul></td></tr><tr><td><strong>junos-edge1</strong><br><small>clab-audit-lab-junos-edge1</small></td><td>juniper_junos</td><td><span class='layer'>Emulated Farm (Layer 3)</span></td><td>32</td><td><span class='badge bg-fail'>FAIL</span></td><td><ul class='flist'><li><span class='sev sev-HIGH'>HIGH</span> <strong>SEC-TELNET-OFF</strong>: Telnet service enabled<br><span class='fix'>Suggested fix: <code>delete system services telnet</code></span></li><li><span class='sev sev-HIGH'>HIGH</span> <strong>SEC-SNMP-WEAK</strong>: Weak SNMP community (public/private)<br><span class='fix'>Suggested fix: <code>delete snmp community public</code></span></li></ul></td></tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
