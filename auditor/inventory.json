@@ -10,6 +10,26 @@
     "exit_cmd": "quit"
   },
   {
+    "name": "cisco-rtr1",
+    "host": "192.168.255.138",
+    "vendor": "cisco_ios",
+    "mode": "shell",
+    "username": "audit",
+    "password": "audit123",
+    "commands": ["terminal length 0", "show running-config"],
+    "exit_cmd": "exit"
+  },
+  {
+    "name": "cisco-sw1",
+    "host": "192.168.255.139",
+    "vendor": "cisco_ios_l2",
+    "mode": "shell",
+    "username": "audit",
+    "password": "audit123",
+    "commands": ["terminal length 0", "show running-config"],
+    "exit_cmd": "exit"
+  },
+  {
     "name": "isp-rtr",
     "host": "clab-audit-lab-isp-rtr",
     "vendor": "frr",

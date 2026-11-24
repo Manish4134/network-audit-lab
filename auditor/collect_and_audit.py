@@ -45,15 +45,14 @@ def audit_config(vendor, text):
     low = text.lower()
     findings = []
 
-    # Check 1: Telnet enabled
-    if any(k in low for k in ("feature telnet", "telnet-server", "telnet;", "transport input telnet", "transport input all")):
+    if any(k in low for k in ("feature telnet", "telnet-server", "telnet;")) or re.search(
+        r"transport input\s+.*\b(telnet|all)\b", low
+    ):
         findings.append("FAIL: Telnet enabled")
 
-    # Check 2: Default/weak SNMP community 'public'
     if re.search(r"community\s+[\"']?public[\"']?", low):
         findings.append("FAIL: Weak SNMP 'public'")
 
-    # Check 3: SSH presence
     has_ssh = any(k in low for k in ("ssh", "stelnet server enable", "ssh-server"))
     if not has_ssh:
         findings.append("WARN: SSH config not explicit")
@@ -66,7 +65,7 @@ def main():
 
     os.makedirs("collected_configs", exist_ok=True)
     print(f"{'DEVICE':<16} {'VENDOR':<15} {'STATUS':<10} {'LINES':<7} {'AUDIT FINDINGS'}")
-    print("-" * 80)
+    print("-" * 85)
 
     for dev in devices:
         name = dev["name"]
@@ -79,7 +78,7 @@ def main():
                 username=dev["username"],
                 password=dev["password"],
                 timeout=10,
-                look_for_keys=True,
+                look_for_keys=False,
                 allow_agent=False,
             )
             if dev.get("mode") == "exec":
